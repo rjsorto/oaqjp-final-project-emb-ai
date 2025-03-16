@@ -13,5 +13,19 @@ def emotion_detection(text_to_analyze):
   obj = { "raw_document": { "text": text_to_analyze } }
 
   response = requests.post(url, json = obj, headers = headers)
+  response_json = json.loads(response.text)
 
-  return response.text
+  ret = response_json['emotionPredictions'][0]['emotion']
+
+  dominant = None
+  score = 0
+  for key, emotion in ret.items():
+    if emotion > score:
+        dominant = key
+        score = emotion
+
+  ret['dominant_emotion'] = dominant
+  return ret
+
+# from emotion_detection import emotion_detection
+# emotion_detection('I love this new technology.')
