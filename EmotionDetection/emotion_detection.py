@@ -29,3 +29,6 @@ def emotion_detection(text_to_analyze):
 
 # from emotion_detection import emotion_detection
 # emotion_detection('I love this new technology.')
+
+# from EmotionDetection.emotion_detection import emotion_detection
+# emotion_detection('I hate working long hours.')
