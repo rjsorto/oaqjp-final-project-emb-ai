@@ -5,7 +5,7 @@ let RunSentimentAnalysis = ()=>{
     sysResponse.innerHTML = '';
     let xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
-        response = 'Please check the input and try again';
+        response = 'Invalid text! Please try again!.';
         if (this.readyState == 4 && this.status == 200) response = xhttp.responseText;
         sysResponse.innerHTML = response;
     };
