@@ -13,8 +13,11 @@ def emotion_detection(text_to_analyze):
   obj = { "raw_document": { "text": text_to_analyze } }
 
   response = requests.post(url, json = obj, headers = headers)
-  response_json = json.loads(response.text)
+  
+  if response.status_code != 200: return {}
 
+  response_json = json.loads(response.text)
+  
   ret = response_json['emotionPredictions'][0]['emotion']
 
   dominant = None
